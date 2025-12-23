@@ -22,10 +22,10 @@ jobs:
 
       - name: Use secrets from outputs
         run: |
-          echo "DB Password from output: ${{ steps.read_kv.outputs['db-password'] }}"
-          echo "API Key from output: ${{ steps.read_kv.outputs['api-key'] }}"
+          echo "ASIER from output: ${{ steps.read_kv.outputs['UR73FAC_ASIER'] }}"
+          echo "SERRU from output: ${{ steps.read_kv.outputs['UR73FAC_SERRU'] }}"
 
       - name: Use secrets from environment variables
         run: |
-          echo "DB Password from env: $DB_PASSWORD"
-          echo "API Key from env: $API_KEY"
+          echo "ASIER from env: $UR73FAC_ASIER"
+          echo "SERRU from env: $UR73FAC_SERRU"
