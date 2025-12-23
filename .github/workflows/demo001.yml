@@ -1,0 +1,31 @@
+name: Read Key Vault Secrets
+
+on:
+  workflow_dispatch:
+
+jobs:
+  read-secrets:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Read Secrets from Key Vault
+        uses: org-name/read-keyvault-secrets-action@main
+        id: read_kv
+        with:
+          client_id: ${{ secrets.AZURE_CLIENT_ID }}
+          client_secret: ${{ secrets.AZURE_CLIENT_SECRET }}
+          tenant_id: ${{ secrets.AZURE_TENANT_ID }}
+          keyvault_uri: ${{ secrets.KEYVAULT_URI }}
+          secret_names: "db-password,api-key"
+
+      - name: Use secrets from outputs
+        run: |
+          echo "DB Password from output: ${{ steps.read_kv.outputs['db-password'] }}"
+          echo "API Key from output: ${{ steps.read_kv.outputs['api-key'] }}"
+
+      - name: Use secrets from environment variables
+        run: |
+          echo "DB Password from env: $DB_PASSWORD"
+          echo "API Key from env: $API_KEY"
