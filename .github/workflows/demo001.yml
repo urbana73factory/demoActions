@@ -22,8 +22,8 @@ jobs:
 
       - name: Use secrets from outputs
         run: |
-          echo "ASIER from output: ${{ steps.read_kv.outputs['UR73FAC_ASIER'] }}"
-          echo "SERRU from output: ${{ steps.read_kv.outputs['UR73FAC_SERRU'] }}"
+          echo "ASIER from output: ${{ steps.read_kv.outputs['asier'] }}"
+          echo "SERRU from output: ${{ steps.read_kv.outputs['serru'] }}"
 
       - name: Use secrets from environment variables
         run: |
