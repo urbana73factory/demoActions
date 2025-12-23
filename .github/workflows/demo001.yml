@@ -17,8 +17,8 @@ jobs:
           client_id: ${{ secrets.AZURE_CLIENT_ID }}
           client_secret: ${{ secrets.AZURE_CLIENT_SECRET }}
           tenant_id: ${{ secrets.AZURE_TENANT_ID }}
-          keyvault_uri: ${{ secrets.KEYVAULT_URI }}
-          secret_names: "db-password,api-key"
+          keyvault_name: ${{ secrets.KEYVAULT_URI }}
+          secret_names: "*"
 
       - name: Use secrets from outputs
         run: |
